@@ -365,11 +365,14 @@ app.post('/api/admin/login', async (c) => {
   const { env } = c;
   const { username, password } = await c.req.json();
 
-  // 간단한 해시 생성 (실제 운영환경에서는 더 강력한 해싱 사용)
-  const crypto = require('crypto');
-  const passwordHash = crypto.createHash('sha256').update(password).digest('hex');
-
   try {
+    // Web Crypto API를 사용한 SHA-256 해싱
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const passwordHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
     const admin = await env.DB.prepare(`
       SELECT * FROM admin_users WHERE username = ? AND password_hash = ?
     `).bind(username, passwordHash).first();
