@@ -10,6 +10,7 @@
     {
       "binding": "DB",
       "database_name": "network-equipment-search-production"
+      "database_id": "3baefa39-36cb-41a3-99a0-e627eff821f0"
     }
   ]
 }
