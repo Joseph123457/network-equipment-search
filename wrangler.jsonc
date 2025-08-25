@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "webapp",
+  "name": "network-equipment-search",
   "compatibility_date": "2025-08-24",
   "pages_build_output_dir": "./dist",
   "compatibility_flags": [
@@ -9,8 +9,7 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "webapp-production",
-      "database_id": "temporary-local-id"
+      "database_name": "network-equipment-search-production"
     }
   ]
 }
