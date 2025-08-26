@@ -6,11 +6,5 @@
   "compatibility_flags": [
     "nodejs_compat"
   ],
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "network-equipment-search-production",
-      "database_id": "placeholder-for-local-dev"
-    }
-  ]
+
 }
